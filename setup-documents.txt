@@ -1,0 +1,11 @@
+
+1. Install NodeJs
+2. Install Visual Studio code
+3. Open visual Studio code as Admin
+4. File ==> Open Folder ... ==> node-whoami
+4. #npm install ==> to install all the node_modules
+5. #node app.js ==> to listening port 5151
+6. Open visual Studio code as Admin
+7. File ==> Open Folder ... ==> react-whoami
+8. #npm install
+9. #npm start ==> localhost:6001/home
