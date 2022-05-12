@@ -18,7 +18,7 @@ export const InputText = React.memo(({styleClass, formKey, formRef, uiRefresh, l
             <label className={`text-gray-600 mb-1${required?' required':''}`}>{label}</label>
             <input type="text" required={!!required} className={`w-full p-2 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e=>setFormVal(e)} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
-        </div>
+        </div>        
     );
 });
 
@@ -33,6 +33,7 @@ export const InputEmail = React.memo(({styleClass, formKey, formRef, uiRefresh, 
         refresh(Date.now());
     }
     return (
+        
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className={`text-gray-600 mb-1${required?' required':''}`}>{label}</label>
             <input type="text" required={!!required} className={`w-full p-2 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e=>setFormVal(e)} readOnly={readonly} disabled={disabled} />
@@ -136,7 +137,7 @@ export const InputDOB = React.memo(({styleClass, formKey, formRef, ui, label, ca
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className="text-gray-600 mb-1 required">DOB</label>
+            <label className="text-gray-600 mb-1 required">DOB</label> 
             <ReactDatePicker selected={formRef.current[formKey]} onChange={date=>setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-2 rounded`} dateFormat={'MMM/dd/yyyy'}/>
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
         </div>
