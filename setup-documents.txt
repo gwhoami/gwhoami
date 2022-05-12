@@ -11,6 +11,7 @@
 9. #npm start ==> localhost:6001/home
 10. local brower will open to 6001 
 11. Test commit
+12. kala changes
 
 
 ============================
