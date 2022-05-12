@@ -70,11 +70,18 @@ const RegisterUser = React.memo(() => {
                     <div class="flex ...">
                         <div class="w-100 ... ">
                             <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+<<<<<<< Updated upstream
 
                                 <div><h1 className="mb-8 text-3xl">Registration</h1></div>
                                 <div class="flex ...">
                                     <div class="w-1/2 ... ">
                                         <InputText styleClass="flex flex-col mb-4 text-2xl" formKey="name" formRef={regRef} uiRefresh={ui} label="Name" placeholder="Name" required="Name is required" />
+=======
+                                <div><h1 className="mb-8 text-3xl">Registration</h1></div>
+                                <div class="flex ... ">
+                                    <div class="w-1/2 ... ">
+                                        <InputText styleClass="flex flex-col mb-4 text-0.1xl" formKey="name" formRef={regRef} uiRefresh={ui} label="Name" placeholder="Name" required="Name is required" />
+>>>>>>> Stashed changes
                                     </div>
                                     <div class="w-1/2 ... ">
                                         <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required" /></div>
