@@ -72,30 +72,44 @@ const RegisterUser = React.memo(() => {
                         <div class="flex ...">
                             <div class="w-1/2 ... ">
                             <InputText styleClass="flex flex-col mb-4" formKey="First Name" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="Name is required" />
-                                
                             </div>
-                            <div class="w-1/6 ... "></div>
+                            
                             <div class="w-1/2 ... ">
                             <InputText styleClass="flex flex-col mb-4" formKey="Last Name" formRef={regRef} uiRefresh={ui} label="Last Name" placeholder="Last Name" required="Name is required" /></div>
-                                
+                            <div class="flex ...">
+                            <div class="w-1/2 ... ">
+                            <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Name" placeholder="Name" required="Name is required" />
+                            </div>
+                            </div>
                         </div>
+                        
                         <div class="flex ...">
                             <div class="w-1/2 ... ">
                             <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Bussiness Name" placeholder="Bussiness Name" required="Name is required" />
                             </div>
                             <div class="w-1/6 ... "></div>
                             <div class="w-1/2 ... ">
-                            <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required" /></div>  
+                            <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Bussiness Site" placeholder="Bussiness Site" required="Name is required" />
+                            </div>  
+                            <div class="w-1/6 ... "></div>
+                            <div class="w-1/2 ... ">
+                            <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Bussiness Site" placeholder="Bussiness Site" required="Name is required" />
+                            </div>  
 
                         </div>
                         <div class="flex ...">
+                        <div class="w-1/2 ... ">
+                            <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required" />
+                            </div>  
+                            <div class="flex ..."></div>
+                            <div class="w-1/7 ... "></div>
                             <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui} />
                         </div>
                         <div class="flex ...">
-                            <div class="w-1/2 ... ">
+                            <div class="w-1/7 ... ">
                                 <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required" />
                             </div>
-                            <div class="w-1/6 ... "></div>
+                            <div class="w-1/5 ... "></div>
                             <div class="w-1/2 ... ">
                                 <InputDOB styleClass="flex flex-col mb-4" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback} />
                             </div>
