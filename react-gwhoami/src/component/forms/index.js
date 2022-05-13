@@ -51,6 +51,7 @@ export const InputRadio = React.memo(({styleClass="",formKey, formRef, ui, name,
         refresh(Date.now());
     }
     return (
+        
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className="text-gray-600 mb-1 required">{label}</label>
             <div className="flex">
@@ -179,6 +180,8 @@ export const PasswordCheck = React.memo(({styleClass, formKey, formRef, ui, ID="
                 {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
                 {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed)=>scoreFeed(score, feed)}/>}
             </div>
+            <div class="w-1/6 ... "></div>
+                            <div class="w-1/2 ... "></div>
             <div className={`flex flex-col mb-4${comparePass() ? ' mark-err' : ''}`}>
                 <label className="text-gray-600 mb-1 required">Re-Password</label>
                 <input 
