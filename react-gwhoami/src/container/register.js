@@ -70,11 +70,11 @@ const RegisterUser = React.memo(() => {
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <div><h1 className="mb-8 text-3xl">Registration</h1></div>
                         <div class="flex ...">
-                            <div class="w-1/2 ... ">
+                            <div class="w-1/3 ... ">
                             <InputText styleClass="flex flex-col mb-4" formKey="First Name" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="Name is required" />
                             </div>
-                            
-                            <div class="w-1/2 ... ">
+                            <div class="flex ..."></div>
+                            <div class="w-1/4 ... ">
                             <InputText styleClass="flex flex-col mb-4" formKey="Last Name" formRef={regRef} uiRefresh={ui} label="Last Name" placeholder="Last Name" required="Name is required" /></div>
                             <div class="flex ...">
                             <div class="w-1/2 ... ">
@@ -84,7 +84,7 @@ const RegisterUser = React.memo(() => {
                         </div>
                         
                         <div class="flex ...">
-                            <div class="w-1/2 ... ">
+                            <div class="w-1/2 ...">
                             <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Bussiness Name" placeholder="Bussiness Name" required="Name is required" />
                             </div>
                             <div class="w-1/6 ... "></div>
