@@ -73,43 +73,41 @@ const RegisterUser = React.memo(() => {
                         <h1 className="mb-8 text-center text-3xl">Registration</h1>
                         <div class="flex ...">
 
-                             <div class="flex ... ">
-                                <div class="w-1/2 ... ">
-                                        <InputText styleClass="flex flex-col mb-4" formKey="fname" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="First Name is required"/>
-                                </div>
-                                    &nbsp;&nbsp;&nbsp;  
-                                    <div class="w-1/2 ... ">
-                                         <InputText styleClass="flex flex-col mb-4" formKey="Lname" formRef={regRef} uiRefresh={ui} label="Last Name" placeholder="Last Name" required="Last Name is required"/>
-                                    </div>
-                                </div>
-                                </div>
+                                <div class="flex ... ">
+                                    <InputText styleClass="flex flex-col mb-4" formKey="fname" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="First Name is required"/>
+                                 </div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <div class="w-1/2 ... ">
+                                    <InputText styleClass="flex flex-col mb-4" formKey="Lname" formRef={regRef} uiRefresh={ui} label="Last Name" placeholder="Last Name" required="Last Name is required"/>
+                                 </div>
+                               </div>
+                               
                                   
                                   <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required"/>
+                                
                                 <div class="flex...">
-                                                     
                                     <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
                                 </div>
                         
                                      <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
                                      <InputText styleClass="flex flex-col mb-4" formKey="Address" formRef={regRef} uiRefresh={ui} label="Address" placeholder="Address" required="Address is required"/>
                        
-
                                  <div class="flex ... ">
-                                <div class="w-1/2 ... ">
-                                     <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
+                                    <div class="w-1/2 ... ">
+                                        <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;  
-                                <div class="w-1/2 ... ">
-                                    <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="State" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
-                                </div></div>
+                                    <div class="w-1/2 ... ">
+                                        <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="State" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
+                                    </div></div>
 
                         
-                        <div class="flex ... ">
-                        <div class="w-1/2 ... ">
+                                <div class="flex ... ">
+                                <div class="w-1/2 ... ">
 
-                            <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="Zip/Postal" placeholder="Zip/Postal" required="Zip/Postal is required"/>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;  
+                                        <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="Zip/Postal" placeholder="Zip/Postal" required="Zip/Postal is required"/>
+                                </div>
+                                 &nbsp;&nbsp;&nbsp;  
                         <div class="w-1/2 ... ">
                             <InputDOB styleClass="flex flex-col mb-4" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback}/>
                         </div></div>
