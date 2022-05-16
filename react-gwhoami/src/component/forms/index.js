@@ -188,7 +188,7 @@ export const PasswordCheck = React.memo(({styleClass, formKey, formRef, ui, ID="
                 
                 </div> 
                 
-                <div class="flex ..."></div> &nbsp;&nbsp;
+                <div class="flex ..."></div> &nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="w-1/2 ... ">
     
                 
