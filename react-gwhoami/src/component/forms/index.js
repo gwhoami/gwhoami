@@ -16,7 +16,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            <input type="text" required={!!required} className={`w-full p-1  border border-slate-300 hover:border-red-800 ... rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
         </div>
     );
@@ -36,7 +36,7 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+            <input type="text" required={!!required} className={`w-full p-1  rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
         </div>
     );

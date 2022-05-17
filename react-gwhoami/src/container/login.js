@@ -9,7 +9,7 @@ import ToastMessage from "../toast";
 import { MenuContext } from "../util/maincontext";
 
 const LoginPage = React.memo(() => {
-    const {goTo} = useContext(MenuContext);
+    const { goTo } = useContext(MenuContext);
     const history = useHistory();
     const [, uiRefresh] = useState(-1);
     const passRef = useRef(null);
@@ -27,8 +27,8 @@ const LoginPage = React.memo(() => {
         formData.current.isLoading = true;
         uiRefresh(Date.now());
         const isEmail = new RegExp('[a-z0-9]+@[a-z]+\\.[a-z]{2,3}').test(formData.current.username);
-        (async()=>{
-            const res = await apiGetCall(`/api/user/${isEmail ? 'logincheck' : 'adminlogincheck'}`,{username: formData.current.username, password: formData.current.password});
+        (async () => {
+            const res = await apiGetCall(`/api/user/${isEmail ? 'logincheck' : 'adminlogincheck'}`, { username: formData.current.username, password: formData.current.password });
             if (res.isError) {
                 let msg = res.Error.response?.data?.success || false;
                 if (!msg) {
@@ -53,38 +53,38 @@ const LoginPage = React.memo(() => {
                 <div className="bg-white px-6 py-8 rounded-xl shadow-md text-black w-full">
                     <h1 className="mb-8 text-3xl text-left">Sign In</h1>
                     <div className="relative text-gray-700 mb-8">
-                        <input 
-                            className="w-full h-10 pl-9 pr-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" 
+                        <input
+                            className="w-full h-10 pl-9 pr-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                             type="text"
                             placeholder="Email or Phone"
                             value={formData.current.username}
-                            onChange={e=>setFormValue(e, 'username')}
+                            onChange={e => setFormValue(e, 'username')}
                         />
                         <div className="absolute inset-y-0 left-1 mt-0.5 flex items-center px-2 pointer-events-none">
-                            <FontAwesomeIcon icon={faEnvelope} className="text-xl"/>
+                            <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
                         </div>
                     </div>
                     <div className="relative text-gray-700 mb-5">
-                        <input 
-                            className="w-full h-10 pl-9 pr-10 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" 
+                        <input
+                            className="w-full h-10 pl-9 pr-10 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
                             type={formData.current.isEyeToggle ? "text" : "password"}
                             placeholder="password"
                             value={formData.current.password}
                             ref={passRef}
-                            onChange={e=>setFormValue(e, 'password')}
+                            onChange={e => setFormValue(e, 'password')}
                         />
                         <div className="absolute inset-y-0 left-1 mt-0.5 flex items-center px-2 pointer-events-none">
-                            <FontAwesomeIcon icon={faLock} className="text-xl"/>
+                            <FontAwesomeIcon icon={faLock} className="text-xl" />
                         </div>
                         <div className="absolute inset-y-0 right-0 flex items-center px-2">
-                            <FontAwesomeIcon icon={formData.current.isEyeToggle ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye}/>
+                            <FontAwesomeIcon icon={formData.current.isEyeToggle ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye} />
                         </div>
                     </div>
                     <div className="mb-5">
                         <Link to="/home/verifyemail" className="text-dodge-b font-bold">Forgot Password/Username</Link>
                     </div>
                     <div className="flex justify-center mb-5">
-                        <button 
+                        <button
                             className="h-14 px-32 m-2 text-indigo-100 transition-colors duration-150 bg-dodge-b rounded-full shadow-md shadow-gray-500 focus:shadow-outline hover:bg-dodge-d"
                             onClick={makeLogin}
                         >
@@ -93,11 +93,11 @@ const LoginPage = React.memo(() => {
                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg></div>
-                            : <>Sign In</>}
+                                : <>Sign In</>}
                         </button>
                     </div>
                     <div className="mb-2 text-center font-bold">
-                        <span>New to whoami? </span><Link to="/home/signin" onClick={_=>goTo(3)} className="text-dodge-b">Register here</Link>
+                        <span>New to whoami? </span><Link to="/home/signin" onClick={_ => goTo(3)} className="text-dodge-b">Register here</Link>
                     </div>
                 </div>
             </div>
