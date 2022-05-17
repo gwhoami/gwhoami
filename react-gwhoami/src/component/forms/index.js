@@ -183,7 +183,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                         {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
                     </div>
                     &nbsp;&nbsp;&nbsp;
-                    <div className={`flex flex-col w-1/2 ... mb-4${comparePass() ? ' mark-err' : ''}`}>
+                    <div class="w-1/2 ... ">
                         <label className="text-gray-600 mb-1 required">Re-Password</label>
                         <input
                             type="password"
