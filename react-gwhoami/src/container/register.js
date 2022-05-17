@@ -72,7 +72,7 @@ const RegisterUser = React.memo(() => {
                 <div className="flex flex-col my-20">
                     <form noValidate onSubmit={e => formSubmit(e)}>
                         <div className="container max-w-xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                            <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                            <div className="bg-white px-2 py-4 rounded shadow-md text-black w-full">
                                 <h1 className="mb-8 text-center text-3xl">Registration</h1>
                                 <div class="flex ...">
                                     <div class="w-1/2 ... ">
@@ -133,7 +133,7 @@ const RegisterUser = React.memo(() => {
 
                                 <div className="flex mb-4 justify-center">
                                     <button
-                                        className="h-14 px-12 m-2 text-indigo-100 transition-colors duration-150 bg-dodge-b rounded-full shadow-md shadow-gray-500 focus:shadow-outline hover:bg-dodge-d"
+                                        className="h-14 px-32 m-2 text-indigo-100 transition-colors duration-150 bg-dodge-b rounded-full shadow-md shadow-gray-500 focus:shadow-outline hover:bg-dodge-d"
                                     >
                                         {regRef.current.isLoading ?
                                             <div className="w-12 flex justify-center"><svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
