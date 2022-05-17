@@ -16,7 +16,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-2 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            <input type="text" required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
         </div>
     );
@@ -36,7 +36,7 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-2 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+            <input type="text" required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
         </div>
     );
@@ -89,7 +89,7 @@ export const InputSelect = React.memo(({ styleClass, formKey, formRef, ui, label
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className="text-gray-600 mb-1 required">{label}</label>
-            <select className={`border ${inValidBorder()} w-full p-2 rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
+            <select className={`border ${inValidBorder()} w-full p-1 rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
                 <option value="">{placeholder}</option>
                 {options.map((itm, idx) => <option key={idx} value={itm.key || itm}>{itm.name || itm}</option>)}
             </select>
@@ -116,7 +116,7 @@ export const InputPhone = React.memo(({ styleClass, formKey, formRef, ui, label,
                 >{formRef.current[code] || '-'}</span>
                 <input
                     type="text"
-                    className={`rounded-none rounded-r-lg border ${inValidBorder()} text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                    className={`rounded-none rounded-r-lg border ${inValidBorder()} text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                     placeholder={placeholder}
                     value={formRef.current[formKey]}
                     onChange={e => setFormVal(e)}
@@ -139,7 +139,7 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className="text-gray-600 mb-1 required">DOB</label>
-            <ReactDatePicker selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-2 rounded`} dateFormat={'MMM/dd/yyyy'} />
+            <ReactDatePicker selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-1 rounded`} dateFormat={'MMM/dd/yyyy'} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
         </div>
     );
@@ -174,7 +174,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                         <label className="text-gray-600 mb-1 required">Password</label>
                         <input
                             type="password"
-                            className={`border ${inValidBorder()} w-full p-2 rounded focus:border-dodge-b`}
+                            className={`border ${inValidBorder()} w-full p-1 rounded focus:border-dodge-b`}
                             placeholder="Password"
                             value={formRef.current[formKey]}
                             onChange={evt => setFormVal(evt)}
@@ -187,7 +187,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                         <label className="text-gray-600 mb-1 required">Re-Password</label>
                         <input
                             type="password"
-                            className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-2 rounded focus:border-dodge-b`}
+                            className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-1 rounded focus:border-dodge-b`}
                             placeholder="Re-type password"
                             value={formRef.current[`${formKey}_re`]}
                             onChange={e => rePass(e)}
