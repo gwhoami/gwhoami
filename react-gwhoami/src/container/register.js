@@ -76,7 +76,7 @@ const RegisterUser = React.memo(() => {
                                 <h1 className="mb-8 text-center text-3xl">Registration</h1>
                                 <div class="flex ...">
                                     <div class="w-1/2 ... ">
-                                        <InputText styleClass="flex flex-col mb-4" formKey="fname" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="First Name is required" />
+                                        <InputText styleClass="flex flex-col mb-4 " formKey="fname" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="First Name is required" />
                                     </div>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">

@@ -89,7 +89,7 @@ const UserPanelDialog = React.memo(({uiref, dataRef}) => {
                     </div>
                     <Scrollbars className="overflow-auto" style={{height: "70vh"}}>
                         <div className="p-5">
-                            <InputText styleClass="flex flex-col mb-4" formKey="name" formRef={regRef} uiRefresh={ui} label="Name" placeholder="Name" required="Name is required"/>
+                            <InputText styleClass="flex flex-col mb-4 " formKey="name" formRef={regRef} uiRefresh={ui} label="Name" placeholder="Name" required="Name is required"/>
                             <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required" disabled={!isNew.current}/>
                             {isNew.current && <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>}
                             <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
@@ -97,7 +97,7 @@ const UserPanelDialog = React.memo(({uiref, dataRef}) => {
                             <InputRadio styleClass="flex flex-col mb-3" formKey="gender" formRef={regRef} ui={ui} name="gender" label="Gender" values={['Male', 'Female', 'Other']} icons={[faMale, faFemale]} required="This field is required"/>
                             <InputText styleClass="flex flex-col mb-4" formKey="city" formRef={regRef} uiRefresh={ui} label="Country/City" placeholder="Country/City" required="Country/City is required"/>
                             <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="Zip/Postal" placeholder="Zip/Postal" required="Zip/Postal is required"/>
-                            <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
+                            <InputSelect styleClass="flex flex-col mb-4 " formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
                             <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="State" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
                             <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
                             <InputRadio styleClass="flex flex-col mb-4" formKey="minor" formRef={regRef} ui={ui} name="minor" label="Is the user being minor (less than 18 years old)" values={['Yes', 'No']} required="This field is required"/>
