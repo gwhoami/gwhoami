@@ -98,7 +98,12 @@ const RegisterUser = React.memo(() => {
 
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
-                                        <InputDOB styleClass="flex flex-col mb-4" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback} />
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <InputDOB styleClass="flex flex-row mb-0" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback} />
+                                        </div>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
@@ -107,7 +112,6 @@ const RegisterUser = React.memo(() => {
                                                 <i class="fa fa-envelope"></i>
                                             </div>
                                             <InputEmail styleClass="flex flex-row mb-0" formKey="username" formRef={regRef} uiRefresh={ui} label="" placeholder="Email" required="Email is required" />
-
                                         </div>
                                     </div>
                                 </div>

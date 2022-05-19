@@ -140,9 +140,10 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className="text-gray-600 mb-1 required">DOB</label>
+
             <ReactDatePicker selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
-            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
+            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
+            &nbsp;<label className="text-red-500 text-xs mb-0 required"></label>&nbsp;
         </div>
     );
 });
