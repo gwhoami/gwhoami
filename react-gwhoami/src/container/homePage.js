@@ -7,7 +7,7 @@ import { MenuContext } from "../util/maincontext";
 import AboutUs from "./aboutUs";
 import MyLocalStorage from "../helper/mylocalStorage";
 import PasswordReset from "./passwordPages/passwordReset";
-import VerifyEmail from "./passwordPages/verifyEmail";
+import VerifyEmail from "./passwordPages/verifyEmail";//
 
 const HomePage = React.memo(() => {         //memo, first renders the function, and then checks the previous state 
                                             //changes/updates, the previous stuff if different
