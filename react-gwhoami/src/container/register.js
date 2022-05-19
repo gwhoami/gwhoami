@@ -98,7 +98,7 @@ const RegisterUser = React.memo(() => {
 
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
-                                        <div class="row border border-slate-400 hover:border-red-800 ...">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
                                             <div class="icon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
