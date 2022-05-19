@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faEye, faEyeSlash, faLock } from "@fortawesome/free-solid-svg-icons";
 import "react-datepicker/dist/react-datepicker.css";
 import { faFemale, faMale } from "@fortawesome/free-solid-svg-icons";
 import { InputDOB, InputEmail, InputPhone, InputRadio, InputSelect, InputText, PasswordCheck } from "../component/forms";
@@ -76,21 +78,39 @@ const RegisterUser = React.memo(() => {
                                 <h1 className="mb-8 text-center text-3xl">Registration</h1>
                                 <div class="flex ...">
                                     <div class="w-1/2 ... ">
-                                        <InputText styleClass="flex flex-col mb-4 " formKey="fname" formRef={regRef} uiRefresh={ui} label="First Name" placeholder="First Name" required="First Name is required" />
-                                    </div>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div class="row   border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-user icon"></i>
+                                            </div>
+                                            <InputText styleClass="flex flex-row mb-0 " formKey="fname" formRef={regRef} uiRefresh={ui} label="Required" placeholder="First Name" required="First Name is required" />
+
+                                        </div>
+                                    </div>&nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
-                                        <InputText styleClass="flex flex-col mb-4" formKey="Lname" formRef={regRef} uiRefresh={ui} label="Last Name" placeholder="Last Name" required="Last Name is required" />
+                                        <div class="row   border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-user icon"></i>
+                                            </div>
+                                            <InputText styleClass="flex flex-row mb-0" formKey="Lname" formRef={regRef} uiRefresh={ui} label="Required" placeholder="Last Name" required="Last Name is required" />
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
                                         <InputDOB styleClass="flex flex-col mb-4" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback} />
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
-                                        <InputEmail styleClass="flex flex-col mb-4" formKey="username" formRef={regRef} uiRefresh={ui} label="Email" placeholder="Email" required="Email is required" />
-                                    </div></div>
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-envelope"></i>
+                                            </div>
+                                            <InputEmail styleClass="flex flex-row mb-0" formKey="username" formRef={regRef} uiRefresh={ui} label="Required" placeholder="Email" required="Email is required" />
+
+                                        </div>
+                                    </div>
+                                </div>
                                 <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui} />
 
                                 <div class="flex ... ">

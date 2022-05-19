@@ -11,35 +11,35 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { apiGetCall } from './helper/API';
 
-const HomePage = React.lazy(()=>import('./container/homePage'));
-const AdminDashboard = React.lazy(()=>import('./container/adminDashboard'));
-const UserHomePage = React.lazy(()=>import('./container/userpages/userHome'));
+const HomePage = React.lazy(() => import('./container/homePage'));
+const AdminDashboard = React.lazy(() => import('./container/adminDashboard'));
+const UserHomePage = React.lazy(() => import('./container/userpages/userHome'));
 
 ReactModal.setAppElement("#root");
 const App = () => {
   const [alert, showAlert] = useState({
     type: '', title: '', message: '', callback: null
   });
-  useEffect(()=>{
+  useEffect(() => {
     apiGetCall('/test');
   }, []);
   const routes = (
     <Switch>
-      <Route path="/home" render={(props)=><HomePage {...props}/>}/>
-      <Route excat path="/admin/:pageId" render={(props)=><AdminDashboard {...props}/>}/>
-      <Route excat path="/user/:pageId" render={(props)=><UserHomePage {...props}/>}/>
+      <Route path="/home" render={(props) => <HomePage {...props} />} />
+      <Route excat path="/admin/:pageId" render={(props) => <AdminDashboard {...props} />} />
+      <Route excat path="/user/:pageId" render={(props) => <UserHomePage {...props} />} />
       <Route path="/">
-        <Redirect to="/home"/>
+        <Redirect to="/home" />
       </Route>
-    </Switch>                                 
+    </Switch>
   );
   return (
-    <MainContext.Provider value={{showAlert}}>
-      <ScrollTop/>
+    <MainContext.Provider value={{ showAlert }}>
+      <ScrollTop />
       <MainLayout>
-        <ToastContainer/>
+        <ToastContainer />
         <AlertBox showAlert={showAlert} {...alert} />
-        <Suspense fallback={<DotSpinner/>}>{routes}</Suspense>
+        <Suspense fallback={<DotSpinner />}>{routes}</Suspense>
       </MainLayout>
     </MainContext.Provider>
   );

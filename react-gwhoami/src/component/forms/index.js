@@ -5,6 +5,7 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import PasswordStrengthBar from 'react-password-strength-bar';
 
+
 export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, label, placeholder, required = "" }) => {
     const isNotValid = () => required && formRef.current.isSubmit && !formRef.current[formKey];
     const inValidBorder = () => isNotValid() ? ' border-red-500' : '';
@@ -15,9 +16,9 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-1  border border-slate-300 hover:border-red-800 ... rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
-            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
+            <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
+            &nbsp;<label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
         </div>
     );
 });
@@ -35,9 +36,10 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
     return (
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className={`text-gray-600 mb-1${required ? ' required' : ''}`}>{label}</label>
-            <input type="text" required={!!required} className={`w-full p-1 border border-slate-300 hover:border-red-800 ... rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
-            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
+            <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+            {isNotValid() && <div className='flex justify-start items-center text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
+            &nbsp;<label className={`text-red-500  text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
+
         </div>
     );
 });
@@ -89,7 +91,7 @@ export const InputSelect = React.memo(({ styleClass, formKey, formRef, ui, label
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <label className="text-gray-600 mb-1 required">{label}</label>
-            <select className={`border ${inValidBorder()} w-full p-1 rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
+            <select className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
                 <option value="">{placeholder}</option>
                 {options.map((itm, idx) => <option key={idx} value={itm.key || itm}>{itm.name || itm}</option>)}
             </select>
@@ -112,7 +114,7 @@ export const InputPhone = React.memo(({ styleClass, formKey, formRef, ui, label,
             <label className="text-gray-600 mb-1 required">{label}</label>
             <div className="flex">
                 <span
-                    className={`inline-flex items-center justify-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 ${inValidBorder()} dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 w-12`}
+                    className={`inline-flex items-center justify-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-slate-300 hover:border-red-800 ... ${inValidBorder()} dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 w-12`}
                 >{formRef.current[code] || '-'}</span>
                 <input
                     type="text"
