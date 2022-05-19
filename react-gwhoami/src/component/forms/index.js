@@ -37,7 +37,7 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
-            {isNotValid() && <div className='flex justify-start items-center text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
+            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
             &nbsp;<label className={`text-red-500  text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
 
         </div>
