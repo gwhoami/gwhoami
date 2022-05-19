@@ -117,9 +117,15 @@ const RegisterUser = React.memo(() => {
                                 </div>
                                 <PasswordCheck styleClass="flex flex-row mb-0" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui} />
 
+
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
-                                        <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone" code="phonecode" placeholder="Phone/Mobile" required="Phone is required" />
+                                    <div class="row   border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                        <InputPhone styleClass="flex flex-row mb-0" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone/Mobile" code="phonecode" placeholder="" required="Phone is required" />
+                                    </div>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">

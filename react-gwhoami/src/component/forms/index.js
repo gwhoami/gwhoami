@@ -189,6 +189,10 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                         {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
                         {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
                         &nbsp;<label className="text-red-600 mb-1 required"></label>&nbsp;
+                       
+
+                       
+
                     </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;
