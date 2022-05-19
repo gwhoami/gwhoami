@@ -115,7 +115,7 @@ const RegisterUser = React.memo(() => {
                                         </div>
                                     </div>
                                 </div>
-                                <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui} />
+                                <PasswordCheck styleClass="flex flex-row mb-0" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui} />
 
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
