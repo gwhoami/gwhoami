@@ -1,18 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
-import RegisterUser from "./register";
+import RegisterUser from "./register";      //. and .. in front means auto fill the file path
 import { Scrollbars } from 'react-custom-scrollbars';
 import LoginPage from "./login";
 import { MenuContext } from "../util/maincontext";
 import AboutUs from "./aboutUs";
 import MyLocalStorage from "../helper/mylocalStorage";
 import PasswordReset from "./passwordPages/passwordReset";
-import VerifyEmail from "./passwordPages/verifyEmail";
+import VerifyEmail from "./passwordPages/verifyEmail";//
 
-const HomePage = React.memo(() => {
-    let { path, url } = useRouteMatch();
-    const [, menuRefresh] = useState(-1);
-    const menuRef = useRef({
+const HomePage = React.memo(() => {         //memo, first renders the function, and then checks the previous state 
+                                            //changes/updates, the previous stuff if different
+
+    let { path, url } = useRouteMatch();    //returns the path, url, 
+
+    const [, menuRefresh] = useState(-1);  //Saving the state of the menu refresh, to go back to its original state
+
+    const menuRef = useRef({                //mutable ref obj, that changes during execution
+                                        //causing re-renders for the respective paths
+                                        //useRef is called as current.XXX
         menu: 0,
         list: [
             {p: '/home', name: 'Home'},
@@ -21,13 +27,18 @@ const HomePage = React.memo(() => {
             {p: '/signin', name: 'Register'}
         ]
     });
+
+
     const goTo = (idx) => {
-        menuRef.current.menu = idx;
-        menuRefresh(Date.now());
+        menuRef.current.menu = idx;     //going into the current, menu of the mutable ref object
+        menuRefresh(Date.now());    //refreshes to the date and time
+                    //basic storage for date and time
     }
+
     useEffect(()=>{
-        MyLocalStorage.empty();
+        MyLocalStorage.empty();     //removing all info on local storage variable
     }, []);
+
     return (
         <MenuContext.Provider value={{goTo}}>
         <div className="bg-gray-200 h-full">
@@ -39,7 +50,9 @@ const HomePage = React.memo(() => {
                     <svg 
                         className="fill-current text-gray-600 hover:text-gray-800" 
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                    >
+                    >           
+                    //this is the xml name space(xmlns) to uniquely identify the variable
+
                         <title>menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
@@ -82,4 +95,4 @@ const HomePage = React.memo(() => {
     );
 });
 
-export default HomePage;
+export default HomePage;    //exports a single class, primitive or module
