@@ -200,3 +200,12 @@ select:focus {
   outline: none;
   padding-left: 15px;
 }
+
+#inputIDred::placeholder{
+  color : red;
+  font-size: medium;
+}
+
+#inputIDgrey::placeholder{
+  color : grey;
+}
