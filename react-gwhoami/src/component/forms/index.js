@@ -276,10 +276,12 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                                 value={formRef.current[`${formKey}_re`]}
                                 onChange={e => rePass(e)}
                             />
-                            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
-                            {/*{comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}*/}
-                            &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
+
+                            <label className="text-gray-600 mb-1 required"></label>&nbsp;
+                                    {/*THis is onlt for the '*' */}
                         </div>
+                        {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                            &nbsp;
                     </div>
                 </div>
             </div>
