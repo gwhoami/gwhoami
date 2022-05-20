@@ -16,7 +16,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            <input type="text" required={!!required} maxlength={25} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
             &nbsp;<label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
         </div>
@@ -174,43 +174,43 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
             <div className={`flex flex-col${(isNotValid() || (formRef.current.isSubmit && feed >= 0 && feed < 2)) ? ' mark-err' : ''}${formRef.current[formKey].length ? '' : ' mb-4'}`}>
                 <div class="flex flex-row">
                     <div class="w-1/2 ... ">
-                    <div class="row border border-slate-300 hover:border-red-800 ...">
-                                            <div class="icon">
-                                                <i class="fa fa-key"></i>
-                                            </div>
-                                            
-                        <input
-                            type="password"
-                            className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
-                            placeholder="Password"
-                            value={formRef.current[formKey]}
-                            onChange={evt => setFormVal(evt)}
-                        />
-                        {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
-                        {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
-                        &nbsp;<label className="text-red-600 mb-1 required"></label>&nbsp;
-                       
+                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                            <div class="icon">
+                                <i class="fa fa-key"></i>
+                            </div>
 
-                       
+                            <input
+                                type="password"
+                                className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
+                                placeholder="Password"
+                                value={formRef.current[formKey]}
+                                onChange={evt => setFormVal(evt)}
+                            />
+                            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
+                            {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
+                            &nbsp;<label className="text-red-600 mb-1 required"></label>&nbsp;
 
-                    </div>
+
+
+
+                        </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;
                     <div class="w-1/2 ... ">
-                    <div class="row border border-slate-300 hover:border-red-800 ...">
-                                            <div class="icon">
-                                                <i class="fa fa-key"></i>
-                                            </div>
-                       
-                        <input
-                            type="password"
-                            className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
-                            placeholder="Re-type password"
-                            value={formRef.current[`${formKey}_re`]}
-                            onChange={e => rePass(e)}
-                        />
-                        {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
-                        &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
+                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                            <div class="icon">
+                                <i class="fa fa-key"></i>
+                            </div>
+
+                            <input
+                                type="password"
+                                className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
+                                placeholder="Re-type password"
+                                value={formRef.current[`${formKey}_re`]}
+                                onChange={e => rePass(e)}
+                            />
+                            {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                            &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
                         </div>
                     </div>
                 </div>
