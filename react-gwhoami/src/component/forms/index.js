@@ -15,14 +15,17 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
         refresh(Date.now());
     }
 
+    //required for the placeholder
     const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
     const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
 
     return (
-<<<<<<< HEAD
         <div className={`text-xs ${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <input id = {colorID} type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             
+                {/* this part of the code is unnecessary 
+                making the placeholder to do all the work*/}
+
                 {/*//If the input is not valid and the feature is required
                 //print what is inside the required
 
@@ -36,18 +39,13 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
             
             <label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>
 
-                {/*{label}          {/*displays the respective text */}
+                {/* This lable is unnecessary */}
 
+                {/*{label}          {/*displays the respective text */}
             </label >&nbsp;{/*space between two words with out going to next line*/}
             
             
             
-=======
-        <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" required={!!required} maxlength={25} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
-            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
-            &nbsp;<label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
->>>>>>> f38a9802d629040a375d25db93db204de976e0f8
         </div>
     );
 });
@@ -62,12 +60,22 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
         formRef.current[formKey] = e.currentTarget.value;
         refresh(Date.now());
     }
+
+    //required for the placeholder
+    const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
+    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+
+
+
     return (
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
-            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
-            &nbsp;<label className={`text-red-500  text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
+            <input type="text" id= {colorID} required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+            
+            {/*this is nor necessary */}
+            {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}*/}
+
+            &nbsp;<label className={`text-red-500  text-xs mb-0${required ? ' required' : ''}`}>{/*label*/}</label>&nbsp;
 
         </div>
     );
