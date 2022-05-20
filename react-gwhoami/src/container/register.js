@@ -112,9 +112,11 @@ const RegisterUser = React.memo(() => {
                                     </div>
                                 </div>
 
-                    <div>
+                    
+                        <div>
                        <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
-                    </div>   
+                    
+                    </div>  
                         <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
                         <InputDOB styleClass="flex flex-col mb-4" formKey="dob" ID="dob" formRef={regRef} uiRefresh={ui} label="DOB" placeholder="DOB" required="Date of birth is required" callback={dobCallback}/>
                         <InputRadio styleClass="flex flex-col mb-3" formKey="gender" formRef={regRef} ui={ui} name="gender" label="Gender" values={['Male', 'Female', 'Other']} icons={[faMale, faFemale]} required="This field is required"/>
