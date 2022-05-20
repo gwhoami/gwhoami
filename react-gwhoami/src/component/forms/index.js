@@ -127,10 +127,17 @@ export const InputSelect = React.memo(({ styleClass, formKey, formRef, ui, label
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className="text-gray-600 mb-1 required">{label}</label>
+
+            <label className="text-gray-600 mb-1 required">{label}</label> 
+
+             {/* the name at the top*/}
+
             <select className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
+
                 <option value="">{placeholder}</option>
+
                 {options.map((itm, idx) => <option key={idx} value={itm.key || itm}>{itm.name || itm}</option>)}
+
             </select>
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
         </div>
@@ -263,12 +270,14 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                             <input
                                 type="password"
+                                id = {colorID}
                                 className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
                                 placeholder="Re-type password"
                                 value={formRef.current[`${formKey}_re`]}
                                 onChange={e => rePass(e)}
                             />
-                            {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                            {/*{comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}*/}
                             &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
                         </div>
                     </div>
