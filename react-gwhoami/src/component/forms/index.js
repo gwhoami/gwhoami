@@ -184,8 +184,9 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
 
-            <ReactDatePicker id = {colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
-            
+            <ReactDatePicker maxDate={new Date()} id = {colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
+                    {/*DOB is setup to only take in an input for
+                    when the date is before the current day, so unwanted dates are not possible */}
 
             {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
             &nbsp;*/}

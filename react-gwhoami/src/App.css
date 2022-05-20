@@ -202,7 +202,7 @@ select:focus {
 }
 
 #inputIDred::placeholder{
-  color : red;
+  color : rgb(247, 144, 144);
   font-size: medium;
 }
 
