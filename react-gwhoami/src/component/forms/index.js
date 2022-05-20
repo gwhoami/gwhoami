@@ -217,6 +217,14 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
     const comparePass = () => {
         return (formRef.current[formKey] !== formRef.current[`${formKey}_re`]);
     }
+
+    //required for the placeholder
+    const placeholder = "Password";
+    const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
+    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+
+
+
     return (
         <>
             <div className={`flex flex-col${(isNotValid() || (formRef.current.isSubmit && feed >= 0 && feed < 2)) ? ' mark-err' : ''}${formRef.current[formKey].length ? '' : ' mb-4'}`}>
@@ -229,12 +237,15 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                             <input
                                 type="password"
+                                id = {colorID}
                                 className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
-                                placeholder="Password"
+                                placeholder={falseInput}
                                 value={formRef.current[formKey]}
                                 onChange={evt => setFormVal(evt)}
                             />
-                            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
+
+                            {/*{isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}*/}
+                            
                             {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
                             &nbsp;<label className="text-red-600 mb-1 required"></label>&nbsp;
 
