@@ -21,7 +21,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
 
     return (
         <div className={`text-xs ${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input id = {colorID} type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            <input id = {colorID} maxLength = "25" type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             
                 {/* this part of the code is unnecessary 
                 making the placeholder to do all the work*/}
@@ -72,10 +72,10 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <input type="text" id= {colorID} required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
             
-            {/*this is nor necessary */}
+            {/*this is not necessary */}
             {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}*/}
 
-            &nbsp;<label className={`text-red-500  text-xs mb-0${required ? ' required' : ''}`}>{/*label*/}</label>&nbsp;
+            &nbsp;<label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>{/*label*/}</label>&nbsp;
 
         </div>
     );
@@ -175,12 +175,22 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
         if (callback) callback();
         else refresh(Date.now());
     }
+
+    //required for the placeholder
+    const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
+    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+
+
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
 
-            <ReactDatePicker selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
-            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
-            &nbsp;<label className="text-red-500 text-xs mb-0 required"></label>&nbsp;
+            <ReactDatePicker id = {colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
+            
+
+            {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
+            &nbsp;*/}
+            
+            <label className="text-red-500 text-xs mb-0 required"></label>&nbsp;
         </div>
     );
 });
