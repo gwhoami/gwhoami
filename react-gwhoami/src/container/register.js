@@ -120,15 +120,19 @@ const RegisterUser = React.memo(() => {
                                     <div class="w-1/2 ... ">
                                         <InputPhone styleClass="flex flex-row mb-0" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone/Mobile" code="phonecode" placeholder="" required="Phone is required" />
                                     </div>
-
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
-                                        <InputText styleClass="flex flex-col mb-4" formKey="Address" formRef={regRef} uiRefresh={ui} label="Address" placeholder="Address" required="Address is required" />
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-address-card-o"></i>
+                                            </div>
+                                            <InputText styleClass="flex flex-row mb-0" formKey="Address" formRef={regRef} uiRefresh={ui} label="Address" placeholder="Address" required="Address is required" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
-                                        <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback} />
+                                        <InputSelect styleClass="flex flex-col mb-0" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback} />
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">

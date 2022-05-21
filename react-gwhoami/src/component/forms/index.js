@@ -17,35 +17,35 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
 
     //required for the placeholder
     const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
-    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+    const colorID = isNotValid() ? "inputIDred" : "inputIDgrey";
 
     return (
         <div className={`text-xs ${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input id = {colorID} maxLength = "25" type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
-            
-                {/* this part of the code is unnecessary 
+            <input id={colorID} maxLength="25" type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+
+            {/* this part of the code is unnecessary 
                 making the placeholder to do all the work*/}
 
-                {/*//If the input is not valid and the feature is required
+            {/*//If the input is not valid and the feature is required
                 //print what is inside the required
 
                  this is what is triggered when the input is not given */}
-                
 
-               {/*{ isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>
+
+            {/*{ isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>
                                     {/*{required}  {/* {..} is for printing variables values 
                                     {falseInput}
                                 </div>}&nbsp;*/}
-            
-            <label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>
 
-                {/* This lable is unnecessary */}
+            <label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`} />
 
-                {/*{label}          {/*displays the respective text */}
-            </label >&nbsp;{/*space between two words with out going to next line*/}
-            
-            
-            
+            {/* This lable is unnecessary */}
+
+            {/*{label}          {/*displays the respective text */}
+            &nbsp;{/*space between two words with out going to next line*/}
+
+
+
         </div>
     );
 });
@@ -63,15 +63,15 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
 
     //required for the placeholder
     const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
-    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+    const colorID = isNotValid() ? "inputIDred" : "inputIDgrey";
 
 
 
     return (
 
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" id= {colorID} required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
-            
+            <input type="text" id={colorID} required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+
             {/*this is not necessary */}
             {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}*/}
 
@@ -128,9 +128,9 @@ export const InputSelect = React.memo(({ styleClass, formKey, formRef, ui, label
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
 
-            <label className="text-gray-600 mb-1 required">{label}</label> 
+            <label className="text-gray-600 mb-1 required">{label}</label>
 
-             {/* the name at the top*/}
+            {/* the name at the top*/}
 
             <select className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
 
@@ -185,19 +185,19 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
 
     //required for the placeholder
     const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
-    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+    const colorID = isNotValid() ? "inputIDred" : "inputIDgrey";
 
 
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
 
-            <ReactDatePicker maxDate={new Date()} id = {colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
-                    {/*DOB is setup to only take in an input for
+            <ReactDatePicker maxDate={new Date()} id={colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
+            {/*DOB is setup to only take in an input for
                     when the date is before the current day, so unwanted dates are not possible */}
 
             {/*{isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
             &nbsp;*/}
-            
+
             <label className="text-red-500 text-xs mb-0 required"></label>&nbsp;
         </div>
     );
@@ -228,7 +228,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
     //required for the placeholder
     const placeholder = "Password";
     const falseInput = isNotValid() ? placeholder + ' Required' : placeholder;
-    const colorID = isNotValid() ? "inputIDred": "inputIDgrey";
+    const colorID = isNotValid() ? "inputIDred" : "inputIDgrey";
 
 
 
@@ -244,7 +244,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                             <input
                                 type="password"
-                                id = {colorID}
+                                id={colorID}
                                 className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
                                 placeholder={falseInput}
                                 value={formRef.current[formKey]}
@@ -252,7 +252,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                             />
 
                             {/*{isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}*/}
-                            
+
                             {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
                             &nbsp;<label className="text-red-600 mb-1 required"></label>&nbsp;
 
@@ -270,7 +270,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                             <input
                                 type="password"
-                                id = {colorID}
+                                id={colorID}
                                 className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded focus:border-dodge-b`}
                                 placeholder="Re-type password"
                                 value={formRef.current[`${formKey}_re`]}
@@ -278,10 +278,10 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                             />
 
                             <label className="text-gray-600 mb-1 required"></label>&nbsp;
-                                    {/*THis is onlt for the '*' */}
+                            {/*THis is onlt for the '*' */}
                         </div>
                         {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
-                            &nbsp;
+                        &nbsp;
                     </div>
                 </div>
             </div>

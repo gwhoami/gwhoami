@@ -201,11 +201,11 @@ select:focus {
   padding-left: 15px;
 }
 
-#inputIDred::placeholder{
-  color : rgb(247, 144, 144);
+#inputIDred::placeholder {
+  color: rgb(247, 144, 144);
   font-size: medium;
 }
 
-#inputIDgrey::placeholder{
-  color : grey;
+#inputIDgrey::placeholder {
+  color: grey;
 }
