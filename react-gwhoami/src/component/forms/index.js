@@ -20,6 +20,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     const colorID = isNotValid() ? "inputIDred" : "inputIDgrey";
 
     return (
+<<<<<<< Updated upstream
         <div className={`text-xs ${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
             <input id={colorID} maxLength="25" type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={falseInput} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
 
@@ -46,6 +47,13 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
 
 
 
+=======
+        <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
+            <input type="text" required={!!required} maxlength={25} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            {isNotValid() && <div className='flex justify-start items-left text-red-400 text-xs mt-1'>{required}</div>}
+            &nbsp;
+            <label className={`text-red-500 text-xs mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
+>>>>>>> Stashed changes
         </div>
     );
 });
@@ -155,7 +163,6 @@ export const InputPhone = React.memo(({ styleClass, formKey, formRef, ui, label,
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <label className="text-gray-600 mb-1 required">{label}</label>
             <div className="flex">
                 <span
                     className={`inline-flex items-center justify-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-slate-300 hover:border-red-800 ... ${inValidBorder()} dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600 w-12`}
