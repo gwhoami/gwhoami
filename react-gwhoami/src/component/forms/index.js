@@ -136,10 +136,10 @@ export const InputDOB = React.memo(({styleClass, formKey, formRef, ui, label, ca
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-             <label className="text-gray-600 mb-1 required"></label>
+             
             <ReactDatePicker selected={formRef.current[formKey]} onChange={date=>setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-2 rounded`} dateFormat={'MMM/dd/yyyy'}/>
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
-           
+            &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
         </div>
     );
 });
@@ -200,7 +200,7 @@ export const PasswordCheck = React.memo(({styleClass, formKey, formRef, ui, ID="
                         <i class="fa fa-key"></i>
                     </div>
 
-                      <div className={`flex flex-col mb-4${comparePass() ? ' mark-err' : ''}`}>
+                      <div className={`flex flex-row mb-4${comparePass() ? ' mark-err' : ''}`}>
                         <input 
                         type="password" 
                         className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-2 rounded focus:border-dodge-b`} 

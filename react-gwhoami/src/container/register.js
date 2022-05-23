@@ -70,8 +70,9 @@ const RegisterUser = React.memo(() => {
                 <div className="container max-w-xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <h1 className="mb-8 text-center text-3xl">Registration</h1>
+                        
                         <div>
-                            <div class="flex ...">
+                             <div class="flex ...">
                                     <div class="w-1/2 ... ">
                                         <div class="row   border border-slate-300 hover:border-red-800 ...">
                                             <div class="icon">
@@ -83,7 +84,7 @@ const RegisterUser = React.memo(() => {
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
-                                        <div class="row   border border-slate-300 hover:border-red-800 ...">
+                                        <div class="row  border border-slate-300 hover:border-red-800 ...">
                                             <div class="icon">
                                                 <i class="fa fa-user"></i>
                                             </div>
@@ -114,7 +115,7 @@ const RegisterUser = React.memo(() => {
 
                     
                                     <div>
-                                        <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
+                                        <PasswordCheck styleClass="flex flex-row mb-0" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
                     
                                     </div>  
 
@@ -124,7 +125,9 @@ const RegisterUser = React.memo(() => {
                                             <div class="icon">
                                                 <i class="fa fa-phone"></i>
                                             </div>
-                                            <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
+                                            <InputPhone styleClass="flex flex-row mb-0" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
+                                            
+                                           
                                         </div>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
@@ -133,7 +136,7 @@ const RegisterUser = React.memo(() => {
                                             {/*<div class="icon">
                                                 <i class="fa fa-envelope"></i> 
                                             </div>*/}
-                                            <InputText styleClass="flex flex-col mb-4" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="Country/City" required="Country/City is required"/>
+                                           <InputText styleClass="flex flex-row mb-0" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="Address" required="Address is required"/>
                                         </div>
                                     </div>
                                 </div>
@@ -141,46 +144,47 @@ const RegisterUser = React.memo(() => {
 
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
-                                        <div class="row border border-slate-300 hover:border-red-800 ...">
-                                            <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
+                                        <div class="col border border-slate-300 hover:border-red-800 ...">
+                                            <InputSelect styleClass="flex flex-row mb-0" formKey="country" formRef={regRef} uiRefresh={ui} label="" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
                         
                                         </div>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
-                                        <div class="row border border-slate-300 hover:border-red-800 ...">
-                                            <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
+                                        <div class="colrow border border-slate-300 hover:border-red-800 ...">
+                                            <InputSelect styleClass="flex flex-row mb-0" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
                                         </div>
                                     </div>
                                 </div>
   
-                        
+  
                                 <div class="flex ... ">
                                     <div class="w-1/2 ... ">
                                         <div class="row border border-slate-300 hover:border-red-800 ...">
-                                        <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="" placeholder="Zip/Postal" required="Zip/Postal is required"/>
-                                           
+                                            <div class="icon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <InputText styleClass="flex flex-row mb-0" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="" placeholder="Zip/Postal" required="Zip/Postal is required"/>
                                         </div>
                                     </div>
                                     &nbsp;&nbsp;&nbsp;
                                     <div class="w-1/2 ... ">
                                         <div class="row border border-slate-300 hover:border-red-800 ...">
-                                        <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
-                                           
+                                            {/*<div class="icon">
+                                                <i class="fa fa-envelope"></i> 
+                                            </div>*/}
+                                            <InputText styleClass="flex flex-row mb-0" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="Country/City" required="Country/City is required"/>
                                         </div>
                                     </div>
                                 </div>
-                        
 
+                        
+                                <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
                                 <InputRadio styleClass="flex flex-col mb-3" formKey="gender" formRef={regRef} ui={ui} name="gender" label="Gender" values={['Male', 'Female', 'Other']} icons={[faMale, faFemale]} required="This field is required"/>
-                       
-                       
-                       
-                       
-                        <InputRadio styleClass="flex flex-col mb-4" formKey="minor" formRef={regRef} ui={ui} name="minor" label="Is the user being minor (less than 18 years old)" values={['Yes', 'No']} required="This field is required"/>
-                        <div className="flex mb-4 justify-center">
+                                <InputRadio styleClass="flex flex-col mb-3" formKey="minor" formRef={regRef} ui={ui} name="minor" label="Is the user being minor (less than 18 years old)" values={['Yes', 'No']} required="This field is required"/>
+                        <div className="flex mb-5 justify-center">
                             <button 
-                                className="h-14 px-12 m-2 text-indigo-100 transition-colors duration-150 bg-dodge-b rounded-full shadow-md shadow-gray-500 focus:shadow-outline hover:bg-dodge-d"
+                                className="h-14 px-32 m-2 text-indigo-100 transition-colors duration-150 bg-dodge-b rounded-full shadow-md shadow-gray-500 focus:shadow-outline hover:bg-dodge-d"
                             >
                             {regRef.current.isLoading ?
                                 <div className="w-12 flex justify-center"><svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
