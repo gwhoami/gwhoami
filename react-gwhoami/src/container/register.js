@@ -113,17 +113,70 @@ const RegisterUser = React.memo(() => {
                                 </div>
 
                     
-                        <div>
-                       <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
+                                    <div>
+                                        <PasswordCheck styleClass="flex flex-col mb-4" formKey="password" ui={ui} formRef={regRef} uiRefresh={ui}/>
                     
-                    </div>  
-                        <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
-                        <InputRadio styleClass="flex flex-col mb-3" formKey="gender" formRef={regRef} ui={ui} name="gender" label="Gender" values={['Male', 'Female', 'Other']} icons={[faMale, faFemale]} required="This field is required"/>
-                        <InputText styleClass="flex flex-col mb-4" formKey="city" formRef={regRef} uiRefresh={ui} label="Country/City" placeholder="Country/City" required="Country/City is required"/>
-                        <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="Zip/Postal" placeholder="Zip/Postal" required="Zip/Postal is required"/>
-                        <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="Country" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
-                        <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="State" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
-                        <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
+                                    </div>  
+
+                                    <div class="flex ... ">
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <div class="icon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <InputPhone styleClass="flex flex-col mb-4" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="" code="phonecode" placeholder="Phone/Mobile" required="Phone is required"/>
+                                        </div>
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            {/*<div class="icon">
+                                                <i class="fa fa-envelope"></i> 
+                                            </div>*/}
+                                            <InputText styleClass="flex flex-col mb-4" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="Country/City" required="Country/City is required"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="flex ... ">
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <InputSelect styleClass="flex flex-col mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="" options={["United State", "India"]} placeholder="Select country" required="Country is required" callback={countryCallback}/>
+                        
+                                        </div>
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                            <InputSelect styleClass="flex flex-col mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="" options={stateList.current[regRef.current.country]||[]} placeholder="Select state" required="State is required" callback={stateCallback}/>
+                                        </div>
+                                    </div>
+                                </div>
+  
+                        
+                                <div class="flex ... ">
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                        <InputText styleClass="flex flex-col mb-4" formKey="zipcode" formRef={regRef} uiRefresh={ui} label="" placeholder="Zip/Postal" required="Zip/Postal is required"/>
+                                           
+                                        </div>
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <div class="w-1/2 ... ">
+                                        <div class="row border border-slate-300 hover:border-red-800 ...">
+                                        <InputRadio styleClass="flex flex-col mb-3" formKey="business" formRef={regRef} ui={ui} name="business" label="Individual/Business" values={['Individual', 'Business']} required="Individual/Business is required"/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                        
+
+                                <InputRadio styleClass="flex flex-col mb-3" formKey="gender" formRef={regRef} ui={ui} name="gender" label="Gender" values={['Male', 'Female', 'Other']} icons={[faMale, faFemale]} required="This field is required"/>
+                       
+                       
+                       
+                       
                         <InputRadio styleClass="flex flex-col mb-4" formKey="minor" formRef={regRef} ui={ui} name="minor" label="Is the user being minor (less than 18 years old)" values={['Yes', 'No']} required="This field is required"/>
                         <div className="flex mb-4 justify-center">
                             <button 
