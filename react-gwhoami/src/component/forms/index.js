@@ -15,7 +15,7 @@ export const InputText = React.memo(({ styleClass, formKey, formRef, uiRefresh, 
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
+            <input type="text" maxLength={25} required={!!required} className={`w-full p-1 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-0'>{required}</div>}
             &nbsp;<label className={`text-gray-600 mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
         </div>
@@ -34,7 +34,7 @@ export const InputEmail = React.memo(({ styleClass, formKey, formRef, uiRefresh,
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <input type="text" required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
+            <input type="text" maxLength={25} required={!!required} className={`w-full p-0 rounded${inValidBorder()}`} placeholder={placeholder} value={formRef.current[formKey]} onChange={e => setFormVal(e)} readOnly={readonly} disabled={disabled} />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-0'>{errorNum() === 1 ? required : 'Invalid email address'}</div>}
             &nbsp;<label className={`text-gray-600 mb-0${required ? ' required' : ''}`}>{label}</label>&nbsp;
 
@@ -114,6 +114,7 @@ export const InputPhone = React.memo(({ styleClass, formKey, formRef, ui, label,
                 >{formRef.current[code] || '-'}</span>
                 <input
                     type="text"
+                    maxLength={10}
                     className={`rounded-none rounded-r-lg border ${inValidBorder()} text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full p-0 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                     placeholder={placeholder}
                     value={formRef.current[formKey]}
@@ -180,6 +181,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                             <input
                                 type="password"
+                                maxLength={25}
                                 className={`border ${inValidBorder()} w-full p-0 rounded focus:border-dodge-b`}
                                 placeholder="Password"
                                 value={formRef.current[formKey]}
@@ -201,6 +203,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                             <div className={`flex flex-row mb-0${comparePass() ? ' mark-err' : ''}`}>
                                 <input
                                     type="password"
+                                    maxLength={25}
                                     className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-0 rounded focus:border-dodge-b`}
                                     placeholder="Re-type password"
                                     value={formRef.current[`${formKey}_re`]}
