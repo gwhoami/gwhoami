@@ -197,6 +197,7 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
 
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
+<<<<<<< HEAD
 
             <ReactDatePicker maxDate={new Date()} id={colorID} selected={formRef.current[formKey]} onChange={date => setFormVal(date)} placeholderText={falseInput} className={`border ${inValidBorder()} w-full p-1 border border-slate-300 hover:border-red-800 ... rounded`} dateFormat={'MMM/dd/yyyy'} />
             {/*DOB is setup to only take in an input for
@@ -206,6 +207,12 @@ export const InputDOB = React.memo(({ styleClass, formKey, formRef, ui, label, c
             &nbsp;*/}
 
             <label className="text-red-500 text-xs mb-0 required"></label>&nbsp;
+=======
+             
+            <ReactDatePicker selected={formRef.current[formKey]} onChange={date=>setFormVal(date)} placeholderText={placeholder} className={`border ${inValidBorder()} w-full p-2 rounded`} dateFormat={'MMM/dd/yyyy'}/>
+            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
+            &nbsp;<label className="text-gray-600 mb-1 required"></label>&nbsp;
+>>>>>>> 6959db20cba63492e8119ee02f93d18478c2181d
         </div>
     );
 });
@@ -241,7 +248,13 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
     return (
         <>
+<<<<<<< HEAD
             <div className={`flex flex-col${(isNotValid() || (formRef.current.isSubmit && feed >= 0 && feed < 2)) ? ' mark-err' : ''}${formRef.current[formKey].length ? '' : ' mb-4'}`}>
+=======
+
+        
+            <div className={`flex flex-col${(isNotValid() || (formRef.current.isSubmit && feed >=0 && feed < 2)) ? ' mark-err' : ''}${formRef.current[formKey].length ? '': ' mb-4'}`}>
+>>>>>>> 6959db20cba63492e8119ee02f93d18478c2181d
                 <div class="flex flex-row">
                     <div class="w-1/2 ... ">
                         <div class="row border border-slate-300 hover:border-red-800 ...">
@@ -257,6 +270,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                                 value={formRef.current[formKey]}
                                 onChange={evt => setFormVal(evt)}
                             />
+<<<<<<< HEAD
 
                             {/*{isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}*/}
 
@@ -268,6 +282,16 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
 
                         </div>
                     </div>
+=======
+                         {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
+                           
+                         {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} className="mt-2" onChangeScore={(score, feed)=>scoreFeed(score, feed)}/>}
+                         <label className="text-gray-600 mb-1 required"></label>
+                       </div>
+                   </div>
+           
+            
+>>>>>>> 6959db20cba63492e8119ee02f93d18478c2181d
                     &nbsp;&nbsp;&nbsp;
                     <div class="w-1/2 ... ">
                         <div class="row border border-slate-300 hover:border-red-800 ...">
@@ -284,6 +308,7 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                                 onChange={e => rePass(e)}
                             />
 
+<<<<<<< HEAD
                             <label className="text-gray-600 mb-1 required"></label>&nbsp;
                             {/*THis is onlt for the '*' */}
                         </div>
@@ -292,6 +317,23 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
                     </div>
                 </div>
             </div>
+=======
+                      <div className={`flex flex-row mb-4${comparePass() ? ' mark-err' : ''}`}>
+                        <input 
+                        type="password" 
+                        className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full p-2 rounded focus:border-dodge-b`} 
+                        placeholder="Re-type password"
+                        value={formRef.current[`${formKey}_re`]}
+                        onChange={e=>rePass(e)}
+                        />
+                        {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                        <label className="text-gray-600 mb-1 required"></label>
+                      </div>
+                </div>
+            </div>
+        </div>
+        </div>
+>>>>>>> 6959db20cba63492e8119ee02f93d18478c2181d
         </>
     );
 });
