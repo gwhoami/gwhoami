@@ -1,0 +1,147 @@
+body {
+  overflow: hidden;
+}
+html, body, #root, #root > div {
+  height: 100%;
+}
+div.bdy {
+  display: grid;
+  grid: [stack] 1fr / min-content [stack] 1fr;
+}
+.Toastify__toast-container { z-index: 9999999 !important; }
+@media (max-width: 640px) {
+  div.bdy > aside,
+  div.bdy > main {
+    grid-area: stack;
+  }
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+#sidenav-open {
+  --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 0.6s;
+  display: grid;
+  grid-template-columns: [nav] 1fr [escape] 2fr;
+}
+  
+@media (max-width: 640px) {
+  #sidenav-open {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    transform: translateX(-110vw);
+    will-change: transform;
+    transition: transform var(--duration) var(--easeOutExpo),
+      visibility 0s linear var(--duration);
+  }
+}
+  
+@media only screen and (max-width: 640px) {
+  #sidenav-open:target {
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform var(--duration) var(--easeOutExpo);
+  }
+
+  #sidenav-open:target ~ main {
+    filter: blur(0.5em);
+    z-index: -1;
+  }
+}
+  
+.grid-cols-auto-1fr-auto {
+  grid-template-columns: auto 1fr auto;
+}
+  
+#profile-progress {
+  border: 1em solid white;
+  border-right-color: #4a00e0;
+  border-top-color: #4a00e0;
+  border-bottom-color: #4a00e0;
+  animation: thickening 1s 0.5s linear normal;
+  border-left-color: white;
+  border-radius: 50%;
+}
+  
+@keyframes thickening {
+  from {
+    border-width: 0.2em;
+  }
+  to {
+    border-width: 1em;
+  }
+}
+
+#menu-toggle:checked + #menu {
+    display: block;
+}
+.required:after {
+  content:"\002A";
+  color: red;
+  margin-left: 5px;
+}
+
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+  outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: #1e90ff;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    border-color: #1e90ff;
+}
+
+/*Modal**/
+.mymodal {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  transition: top .7s ease;
+  border: 1px solid #ccc;
+  background: #fff;
+  /* overflow: auto; */
+  border-radius: 4px;
+  outline: none;
+  /* padding: 20px; */
+  z-index: 99999;
+}
+  
+.myoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 999999;
+}
+  
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+  
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+  
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.slideshow {
+  top: 100px;
+}
+/****/
+.mark-err button {border-color: red;}
