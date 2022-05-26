@@ -69,7 +69,7 @@ const RegisterUser = React.memo(() => {
             <form noValidate onSubmit={e => formSubmit(e)}>
                 <div className="container max-w-xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                        <h1 className="mb-8 text-3xl items-center">Registration</h1>
+                        <h1 className="mb-8 text-3xl">Registration</h1>
                         <div>
                             <div class="flex ...">
                                 <div class="w-1/2 ... ">
@@ -130,21 +130,21 @@ const RegisterUser = React.memo(() => {
                         <div class="flex ... ">
                             <div class="w-1/2 ... ">
                                 <div class="row border border-slate-300 hover:border-red-800 ...">
-                                    <InputPhone styleClass="flex flex-col mb-0" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="Phone" code="phonecode" placeholder="Phone/Mobile" required="required" />
-                                </div>
-                            </div>
-                            &nbsp;&nbsp;&nbsp;
-                            <div class="w-1/2 ... ">
-                                <div class="row border border-slate-300 hover:border-red-800 ...">
                                     <div class="icon">
                                         <i class="fa fa-address-card-o"></i>
                                     </div>
                                     <InputText styleClass="flex flex-row mb-0" formKey="address" formRef={regRef} uiRefresh={ui} label="" placeholder="Address" required="required" />
                                 </div>
+                            </div>&nbsp;&nbsp;&nbsp;
+                            <div class="w-1/2 ... ">
+                                <div class="row border border-slate-300 hover:border-red-800 ...">
+                                    <div class="icon">
+                                        <i class="fas fa-city"></i>
+                                    </div>
+                                    <InputText styleClass="flex flex-row mb-0" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="County/City" required="required" />
+                                </div>
                             </div>
                         </div>
-
-
                         <div class="flex ... ">
                             <div class="w-1/2 ... ">
                                 <div class="row border border-slate-300 hover:border-red-800 ...">
@@ -157,10 +157,7 @@ const RegisterUser = React.memo(() => {
                             &nbsp;&nbsp;&nbsp;
                             <div class="w-1/2 ... ">
                                 <div class="row border border-slate-300 hover:border-red-800 ...">
-                                    <div class="icon">
-                                        <i class="fas fa-city"></i>
-                                    </div>
-                                    <InputText styleClass="flex flex-row mb-0" formKey="city" formRef={regRef} uiRefresh={ui} label="" placeholder="County/City" required="required" />
+                                    <InputPhone styleClass="flex flex-col mb-0" formKey="phone" ID="phone" formRef={regRef} uiRefresh={ui} label="" code="phonecode" placeholder="Phone/Mobile" required="required" />
                                 </div>
                             </div>
                         </div>
