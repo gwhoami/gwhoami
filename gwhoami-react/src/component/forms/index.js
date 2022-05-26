@@ -89,12 +89,41 @@ export const InputSelect = React.memo(({ styleClass, formKey, formRef, ui, label
     }
     return (
         <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <select className={`border ${inValidBorder()} w-full p-2 rounded`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
+            <select className={` ${inValidBorder()}  w-full p-3 rounded row border border-slate-300 hover:border-red-800 ... border`} defaultValue={formRef.current[formKey]} onChange={e => setFormVal(e)} id={ID}>
                 <option value="">{placeholder}</option>
                 {options.map((itm, idx) => <option key={idx} value={itm.key || itm}>{itm.name || itm}</option>)}
             </select>
-            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
+            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-0'>{required}</div>}
             <label className="text-gray-600 mb-1 required"></label>
+        </div>
+    );
+});
+
+export const CountrySelect = React.memo(({ styleClass, formKey, formRef, ui, label, callback = null, placeholder = "", required = "", ID = "" }) => {
+    const isNotValid = () => required && formRef.current.isSubmit && !formRef.current[formKey];
+    const inValidBorder = () => isNotValid() ? 'border-red-500' : 'border-gray-400';
+    const [, refresh] = useState(-1);
+    const setFormVal = (code) => {
+        formRef.current[formKey] = code;
+        if (callback) callback();
+        else refresh(Date.now());
+    }
+    return (
+        <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
+            <ReactFlagsSelect
+                className={`row border border-slate-300 hover:border-red-800 ...  ${inValidBorder()} w-full`}
+                id={ID}
+                selected={formRef.current[formKey]}
+                onSelect={(code) => setFormVal(code)}
+                countries={["US", "IN"]}
+                placeholder={placeholder}
+            // customLabels={{
+            //     "US": { primary: "United States", secondary: "+1" },
+            //     "IN": { primary: "India", secondary: "+91" },
+            // }}
+            />
+            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-0'>{required}</div>}
+            <label className="text-gray-600 mb-1 required">{label}</label>&nbsp;
         </div>
     );
 });
@@ -254,31 +283,3 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
     );
 });
 
-export const CountrySelect = React.memo(({ styleClass, formKey, formRef, ui, label, callback = null, placeholder = "", required = "", ID = "" }) => {
-    const isNotValid = () => required && formRef.current.isSubmit && !formRef.current[formKey];
-    const inValidBorder = () => isNotValid() ? 'border-red-500' : 'border-gray-400';
-    const [, refresh] = useState(-1);
-    const setFormVal = (code) => {
-        formRef.current[formKey] = code;
-        if (callback) callback();
-        else refresh(Date.now());
-    }
-    return (
-        <div className={`${styleClass}${isNotValid() ? ' mark-err' : ''}`}>
-            <ReactFlagsSelect
-                className={`${inValidBorder()} w-full`}
-                id={ID}
-                selected={formRef.current[formKey]}
-                onSelect={(code) => setFormVal(code)}
-                countries={["US", "IN"]}
-                placeholder={placeholder}
-            // customLabels={{
-            //     "US": { primary: "United States", secondary: "+1" },
-            //     "IN": { primary: "India", secondary: "+91" },
-            // }}
-            />
-            {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>{required}</div>}
-            <label className="text-gray-600 mb-1 required">{label}</label>&nbsp;
-        </div>
-    );
-});
