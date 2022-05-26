@@ -115,17 +115,6 @@ const RegisterUser = React.memo(() => {
                         </div>
                         <div class="flex ... ">
                             <div class="w-1/2 ... ">
-<<<<<<< HEAD
-                                <div class="">
-                                    <CountrySelect styleClass="flex flex-row mb-4" formKey="country" formRef={regRef} uiRefresh={ui} label="" placeholder="Select country" required="required" callback={countryCallback} />
-                                </div>
-                            </div>
-                            &nbsp;&nbsp;&nbsp;
-                            <div class="w-1/2 ... ">
-                                <div class="">
-                                    <InputSelect styleClass="flex flex-row mb-4" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="" options={stateList.current[regRef.current.country] || []} placeholder="Select state" required="required" callback={stateCallback} />
-                                </div>
-=======
 
                                 <CountrySelect styleClass="flex flex-row mb-0" formKey="country" formRef={regRef} uiRefresh={ui} label="" placeholder="Select country" required="required" callback={countryCallback} />
 
@@ -135,7 +124,6 @@ const RegisterUser = React.memo(() => {
 
                                 <InputSelect styleClass="flex flex-row mb-0" formKey="state" ID="state" formRef={regRef} uiRefresh={ui} label="" options={stateList.current[regRef.current.country] || []} placeholder="Select state" required="required" callback={stateCallback} />
 
->>>>>>> 4c4fcfe283d2645a472a64dca34ad9ebdaec14fd
                             </div>
                         </div>
 
