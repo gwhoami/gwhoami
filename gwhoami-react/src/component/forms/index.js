@@ -117,10 +117,7 @@ export const CountrySelect = React.memo(({ styleClass, formKey, formRef, ui, lab
                 onSelect={(code) => setFormVal(code)}
                 countries={["US", "IN"]}
                 placeholder={placeholder}
-            // customLabels={{
-            //     "US": { primary: "United States", secondary: "+1" },
-            //     "IN": { primary: "India", secondary: "+91" },
-            // }}
+
             />
             {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-0'>{required}</div>}
             <label className="text-gray-600 mb-1 required">{label}</label>&nbsp;
