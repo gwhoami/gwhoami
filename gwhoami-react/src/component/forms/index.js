@@ -224,57 +224,42 @@ export const PasswordCheck = React.memo(({ styleClass, formKey, formRef, ui, ID 
     return (
         <>
             <div className={`flex flex-col${(isNotValid() || (formRef.current.isSubmit && feed >= 0 && feed < 2)) ? ' mark-err' : ''}${formRef.current[formKey].length ? '' : ' mb-4'}`}>
-                <div class="flex flex-row">
-                    <div class="w-1/2 ... ">
-                        <div class="row border border-slate-300 hover:border-red-800 ...">
-                            <div class="icon">
-                                <i class="fa fa-key"></i>
-                            </div>
-                            <input
-                                type={isEyeToggle ? "text" : "password"}
-                                className={`border ${inValidBorder()} w-full py-0 pl-9 pr-10 rounded focus:border-dodge-b`}
-                                placeholder="Password"
-                                value={formRef.current[formKey]}
-                                maxLength={25}
-                                onChange={evt => setFormVal(evt)}
-                            />
-                            <div className="absolute inset-y-0 left-1 flex items-center px-2 pointer-events-none text-gray-600"><FontAwesomeIcon icon={faLock} className="text-xl" /></div>
-                            <div className="absolute inset-y-0 right-0 flex items-center px-2">
-                                {/* <FontAwesomeIcon icon={isEyeToggle ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye}/> */}
-                                <FontAwesomeIcon icon={faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye} onMouseOut={mouseOutToggle} />
-                            </div>
-                            <label className="text-gray-600 mb-1 required"></label>&nbsp;
-                        </div>
-                        {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>required</div>}
-                        {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} minLength={8} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-
-                    <div class="w-1/2 ... ">
-                        <div class="row border border-slate-300 hover:border-red-800 ...">
-                            <div class="icon">
-                                <i class="fa fa-key"></i>
-                            </div>
-
-                            <div className={`flex flex-row mb-0${comparePass() ? ' mark-err' : ''}`}>
-                                <input
-                                    type={isEyeToggle2 ? "text" : "password"}
-                                    className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full py-0 pl-9 pr-10 rounded focus:border-dodge-b`}
-                                    placeholder="Re-type password"
-                                    value={formRef.current[`${formKey}_re`]}
-                                    onChange={e => rePass(e)}
-                                />
-                                <div className="absolute inset-y-0 left-1 flex items-center px-2 pointer-events-none text-gray-600"><FontAwesomeIcon icon={faLock} className="text-xl" /></div>
-                                <div className="absolute inset-y-0 right-0 flex items-center px-2">
-                                    {/* <FontAwesomeIcon icon={isEyeToggle2 ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye2}/> */}
-                                    <FontAwesomeIcon icon={faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye2} onMouseOut={mouseOutToggle2} />
-                                </div>
-                            </div>
-                            <label className="text-gray-600 mb-1 required"></label>&nbsp;
-                        </div>
-                        {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
+                <label className="text-gray-600 mb-1 required">Password</label>
+                <div className='relative'>
+                    <input
+                        type={isEyeToggle ? "text" : "password"}
+                        className={`border ${inValidBorder()} w-full py-2 pl-9 pr-10 rounded focus:border-dodge-b`}
+                        placeholder="Password"
+                        value={formRef.current[formKey]}
+                        maxLength={25}
+                        onChange={evt => setFormVal(evt)}
+                    />
+                    <div className="absolute inset-y-0 left-1 flex items-center px-2 pointer-events-none text-gray-600"><FontAwesomeIcon icon={faLock} className="text-xl" /></div>
+                    <div className="absolute inset-y-0 right-0 flex items-center px-2">
+                        {/* <FontAwesomeIcon icon={isEyeToggle ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye}/> */}
+                        <FontAwesomeIcon icon={faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye} onMouseOut={mouseOutToggle} />
                     </div>
                 </div>
+                {isNotValid() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password is required</div>}
+                {formRef.current[formKey].length > 0 && <PasswordStrengthBar password={formRef.current[formKey]} minLength={8} className="mt-2" onChangeScore={(score, feed) => scoreFeed(score, feed)} />}
+            </div>
+            <div className={`flex flex-col mb-4${comparePass() ? ' mark-err' : ''}`}>
+                <label className="text-gray-600 mb-1 required">Re-Password</label>
+                <div className='relative'>
+                    <input
+                        type={isEyeToggle2 ? "text" : "password"}
+                        className={`border ${comparePass() ? 'border-red-500' : 'border-gray-400'} w-full py-2 pl-9 pr-10 rounded focus:border-dodge-b`}
+                        placeholder="Re-type password"
+                        value={formRef.current[`${formKey}_re`]}
+                        onChange={e => rePass(e)}
+                    />
+                    <div className="absolute inset-y-0 left-1 flex items-center px-2 pointer-events-none text-gray-600"><FontAwesomeIcon icon={faLock} className="text-xl" /></div>
+                    <div className="absolute inset-y-0 right-0 flex items-center px-2">
+                        {/* <FontAwesomeIcon icon={isEyeToggle2 ? faEyeSlash : faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye2}/> */}
+                        <FontAwesomeIcon icon={faEye} className="text-xl opacity-50 hover:opacity-100 hover:cursor-pointer" onClick={toggleEye2} onMouseOut={mouseOutToggle2} />
+                    </div>
+                </div>
+                {comparePass() && <div className='flex justify-start items-center text-red-500 text-xs mt-1'>Password not matched</div>}
             </div>
         </>
     );
