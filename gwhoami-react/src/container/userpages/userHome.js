@@ -1,6 +1,5 @@
 import {
-    faArrowRightFromBracket,
-    faHome,
+    faArrowRightFromBracket, faHome,
     fa9,
     faBasketball,
     faBaseball,
