@@ -8,6 +8,8 @@ import AboutUs from "./aboutUs";
 import MyLocalStorage from "../helper/mylocalStorage";
 import PasswordReset from "./passwordPages/passwordReset";
 import VerifyEmail from "./passwordPages/verifyEmail";
+import profile from "./Profile/profile";
+import Profile from "./Profile/profile";
 
 const HomePage = React.memo(() => {
     let { path, url } = useRouteMatch();
@@ -18,7 +20,8 @@ const HomePage = React.memo(() => {
             {p: '/home', name: 'Home'},
             {p: '/about', name: 'About Us'},
             {p: '/login', name: 'Login'},
-            {p: '/signin', name: 'Register'}
+            {p: '/signin', name: 'Register'},
+            {p: '/profile', name: 'Profile'}
         ]
     });
     const goTo = (idx) => {
@@ -71,6 +74,7 @@ const HomePage = React.memo(() => {
                             <div className="text-2xl">Welcome to Gwhoami</div>
                         </div>
                     </Route>
+                    <Route path={`${path}/profile`} render={(props)=><Profile {...props}/>}></Route>
                     <Route path={`${path}/signin`} render={(props)=><RegisterUser {...props}/>}></Route>
                     <Route path={`${path}/login`} render={(props)=><LoginPage {...props}/>}></Route>
                     <Route path={`${path}/about`} render={(props)=><AboutUs {...props}/>}></Route>
