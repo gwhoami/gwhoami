@@ -7,6 +7,7 @@ import ToastMessage from "../../toast";
 import { Link } from "react-router-dom";
 import {Animated} from 'react-animated-css';
 import { HomeContext } from "../../util/maincontext";
+import 'boxicons';
 
 const RegisterUser = React.memo(() => {
     const [ui, uiRefresh] = useState(-1);
@@ -85,6 +86,7 @@ const RegisterUser = React.memo(() => {
     );
     else return (
         <div className="flex flex-col my-20">
+            
             <form noValidate onSubmit={e => formSubmit(e)}>
                 <div className="container max-w-2xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">

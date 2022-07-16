@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import MyLocalStorage from './util/mylocalStorage';
 import PublicRoute from './routes/publicRoute';
+import 'boxicons/css/boxicons.min.css';
 //import HomeLanding from './layout/homelayout/homeLanding';
 import UserRoute from './routes/userRoute';
 const HomeLanding = React.lazy(()=>import('./layout/homelayout/homeLanding'));
