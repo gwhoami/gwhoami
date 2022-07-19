@@ -23,7 +23,7 @@ const SideBar = React.memo(() => {
             </div>
             <ul className="nav-links">
                 {NavList.user.map((itm, idx)=>(
-                    <>
+                    <React.Fragment key={itm.menu}>
                     {itm.sub.length === 1 ?
                     <li>
                         <a href="#/">{itm.icon}<span className="link_name">{itm.menu}</span></a>
@@ -38,16 +38,16 @@ const SideBar = React.memo(() => {
                         </div>
                         <ul className="sub-menu">
                             {itm.sub.map((sub, subidx)=>(
-                                <>
+                                <React.Fragment key={sub.name}>
                                 {subidx === 0 ? 
                                     <li><a href="#/" className="link_name">{sub.name}</a></li> :
                                     <li><a href="#/">{sub.name}</a></li>
                                 }
-                                </>
+                                </React.Fragment>
                             ))}
                         </ul>
                     </li>}
-                    </>
+                    </React.Fragment>
                 ))}
             </ul>
         </div>
